@@ -24,14 +24,34 @@ PRcod int not null,
 Quantidade int 
 );
 
-create table instituição (
+create table instituição2 (
 Icodigo int primary key not null,
 Iname varchar(200) not null
 );
 
-create table instituição2 (
+create table Projeto (
 PRnome varchar(100) not null,
 PRcod int not null,
 cod int primary key
 );
+
+drop table instituição2
+
+CREATE TABLE Cidade (
+    Ccod INT PRIMARY KEY,
+    Cnome VARCHAR(100) NOT NULL,
+    uf CHAR(2) NOT NULL
+);
+
+alter table Fornecedor 
+change Cidade Fone VARCHAR(20);
+add Ccod INT;
+
+alter table Peça
+change Cidade Ccod INT NOT NULL;
+
+alter table Projeto
+drop Cidade;
+
+
 
