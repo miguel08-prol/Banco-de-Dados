@@ -2,36 +2,34 @@ create database reserva_equipamento;
 
 use reserva_equipamento;
 
-
 create table cliente (
-    id_cliente INT PRIMARY KEY NOT NULL,
-    nome_cliente VARCHAR(100),
-    CPF VARCHAR(14),
-    data_nascimento DATETIME
+nome_cliente varchar(100),
+id_cliente int not null,
+CPF varchar(14),
+data_nascimento datetime
 );
-
 
 create table equipamento (
-    code_equipamento INT PRIMARY KEY NOT NULL,
-    tipo_equipamento VARCHAR(255),
-    qtde INT,
-    valor DECIMAL
+code_equipamento int not null,
+tipo_equipamento varchar(255),
+qtde int,
+valor decimal
 );
-
 
 create table reserva (
-    code_reserva INT PRIMARY KEY NOT NULL,
-    data_reserva DATETIME
+code_reserva int not null,
+nome_cliente varchar(100),
+endereco varchar(150),
+equipamento_reserva varchar(200),
+data_reserva datetime
 );
-
 
 create table logica (
-    code_logica INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    code_reserva INT NOT NULL,
-    code_equipamento INT NOT NULL,
-    id_cliente INT NOT NULL,
-    FOREIGN KEY (code_reserva) REFERENCES reserva (code_reserva),
-    FOREIGN KEY (code_equipamento) REFERENCES equipamento (code_equipamento),
-    FOREIGN KEY (id_cliente) REFERENCES cliente (id_cliente)
+code_logica int primary key auto_increment not null,
+code_reserva int not null,
+code_equipamento int not null,
+id_cliente int not null,
+foreign key (code_reserva) references reserva (code_reserva),
+foreign key (code_equipamento) references equipamento (code_equipamento),
+foreign key (id_cliente) references cliente (id_cliente)
 );
-
