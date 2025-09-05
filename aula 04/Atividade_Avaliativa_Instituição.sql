@@ -1,6 +1,8 @@
 create database Instituição;
 
 use Instituição;
+select database();
+
 
 create table Fornecedor (
     Fcodigo int primary key not null,
@@ -97,7 +99,8 @@ PRcod int not null,
 cod int primary key
 );
 
-drop table instituição2
+show tables;
+drop table instituição2;
 
 CREATE TABLE Cidade (
     Ccod INT PRIMARY KEY,
@@ -107,7 +110,7 @@ CREATE TABLE Cidade (
 
 alter table Fornecedor 
 change Cidade Fone VARCHAR(20);
-add Ccod INT;
+ADD Ccod INT;
 
 alter table Peça
 change Cidade Ccod INT NOT NULL;
@@ -116,7 +119,7 @@ alter table Projeto
 drop Cidade;
 
 CREATE INDEX idx_fornecedor_ccod ON Fornecedor(Ccod);
-CREATE INDEX idx_peca_ccod ON Peca(Ccod);
+CREATE INDEX idx_peca_ccod ON Peça(Ccod);
 CREATE INDEX idx_projeto_ccod ON Projeto(Ccod);
 
 ALTER TABLE Fornecedor ADD FOREIGN KEY (Ccod) REFERENCES Cidade(Ccod);
@@ -130,8 +133,31 @@ ADD FOREIGN KEY (Fcod) REFERENCES Fornecedor(Fcodigo);
 ALTER TABLE Fornecimento ADD FOREIGN KEY (Pcod) REFERENCES Peça(Pcodigo);
 ALTER TABLE Fornecimento ADD FOREIGN KEY (PRcod) REFERENCES Projeto(PRcod);
 
-CREATE INDEX idx_fornecedor_ccod ON Fornecedor(Ccod);
-CREATE INDEX idx_peca_ccod ON Peça(Ccod);
-CREATE INDEX idx_projeto_ccod ON Projeto(Ccod);
+-- Verificar ultimo valor inserido de ID(quado tiver auto imcremento)
+select last_insert_id();
 
 
+-- Tabela Cidade
+Insert into Cidade
+values(11,'Limeira','SP');
+
+insert into Cidade
+values(14,'Rio Claro','Sp');
+
+Insert into Cidade
+values(12,'Santa Barbara','SP');
+
+Insert into Cidade
+values(13,'Piracicaba','SP');
+
+insert into Fornecedor
+values(11,'José Silva','Ativo','Limeira');
+
+insert into Fornecedor
+values(13,'Silvana Cardoso','Desativado','Piracicaba');
+
+Insert into Peça
+values(9876543,'Escapamento','Cinza','20kg','Ubatuba');
+
+Insert into Peça
+values(36278977,'Motor','Rosa','15kg','Ubatuba')
