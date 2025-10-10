@@ -1,0 +1,44 @@
+Para configurar o git no bash
+ 
+git config --global user.name "seu nome"
+
+git config --global user.email "seu email"
+
+Para confirmar se funcionou 
+
+git config --global user.name
+
+git config --global user.email
+
+Para clonar um repositório já existente (seja ele seu ou de outra pessoa)
+
+git clone "Link do repositório"
+
+vincular ao repositório online,criar uma pasta com seu nome e abrir ela com o git bash
+
+para reiniciar o repositório- git init
+
+git remote add origin link do seu repositório
+git branch -M main
+git push -u origin main
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
