@@ -151,6 +151,7 @@ INSERT INTO Escrever (cod_livro, cod_autor) VALUES
 
 -- Consultas --
 select * from Livros;
+select * from Vendas;
 
 select titulo,preco from Livros;
 
@@ -177,3 +178,18 @@ join Autores on Livros.id_autor =  Autores.id_Autor;
 -- Consulta por agrupamento group by
 select titulo, count(*) as qtd from Livros group by titulo;
 
+select * from Vendas;
+select * from Livros;
+
+Start transaction;
+-- 1. Diminuir 2 unidades do estoque do livro "Harry Potter e a Pedra filosofal" (cod_venda)
+update Vendas set qtd = qtd - 2 where cod_venda = 2;
+
+-- 2. Inserir o registro da venda
+insert into Vendas (cod_venda,data_venda,nome_cliente,titulo,qtd,valor_total) values (2,Now(),"João Silva","Dom Casmurro",2,45.50);
+
+-- Se tudo ocorrer bem,finalize a transição.
+commit;
+
+-- Se algo der errado e você prescisar desfazer,use o comando:
+rollback
