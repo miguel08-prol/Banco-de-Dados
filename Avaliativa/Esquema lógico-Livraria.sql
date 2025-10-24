@@ -193,3 +193,5 @@ commit;
 
 -- Se algo der errado e você prescisar desfazer,use o comando:
 rollback
+
+
