@@ -1,0 +1,10 @@
+Desafio 1: SHOW TABLES;
+Desafio 2: DESCRIBE ducks;
+Desafio 3: SELECT * FROM ducks;
+Desafio 4: SELECT * FROM ducks WHERE age <= 2;
+Desafio 5: SELECT * FROM ducks ORDER BY age;
+Desafio 6: SELECT * FROM ducks ORDER BY age LIMIT 3;
+Desafio 7: SELECT name, age * 12 AS age_in_months FROM ducks;
+Desafio 8: SELECT DISTINCT species FROM ducks;
+Desafio 9: SELECT * FROM duck_surveys USING SAMPLE 10;
+Desafio 10:SELECT COUNT(*), AVG(age), MIN(age), MAX(age) FROM ducks;
