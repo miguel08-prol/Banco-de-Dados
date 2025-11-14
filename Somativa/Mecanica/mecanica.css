@@ -1,0 +1,609 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #ff6b00;
+    --secondary-color: #1a1a1a;
+    --accent-color: #ffa500;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --bg-light: #f5f5f5;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+head {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #2d2d2d 100%);
+    color: var(--text-light);
+    padding: 2rem 0;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+head::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0 Q300,60 600,40 T1200,20 L1200,120 L0,120 Z" fill="rgba(255,107,0,0.1)"/></svg>') no-repeat bottom;
+    background-size: cover;
+}
+
+head h1 {
+    position: relative;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navigation */
+nav {
+    background: var(--secondary-color);
+    padding: 1rem 0;
+    box-shadow: var(--shadow);
+    sticky: top 0;
+    z-index: 100;
+}
+
+nav .container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    transition: left 0.5s ease;
+}
+
+nav a:hover::before {
+    left: 100%;
+}
+
+nav a:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 107, 0, 0.4);
+}
+
+/* Main Content */
+main {
+    padding: 3rem 0;
+    min-height: calc(100vh - 300px);
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Form Section */
+.form-section {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 700px;
+    animation: fadeInUp 0.6s ease-out;
+    border-top: 4px solid var(--primary-color);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-section h2 {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.form-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.875rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-group input:hover {
+    border-color: var(--accent-color);
+}
+
+/* Button */
+button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: var(--text-light);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: var(--shadow);
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4);
+}
+
+button[type="submit"]:active {
+    transform: translateY(-1px);
+}
+
+/* Footer */
+footer {
+    background: var(--secondary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Header - corrigido para funcionar também com <header> */
+header {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #2d2d2d 100%);
+    color: var(--text-light);
+    padding: 2rem 0;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0 Q300,60 600,40 T1200,20 L1200,120 L0,120 Z" fill="rgba(255,107,0,0.1)"/></svg>') no-repeat bottom;
+    background-size: cover;
+}
+
+header h1 {
+    position: relative;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.6s ease-out;
+}
+
+/* List Section */
+.list-section {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    animation: fadeInUp 0.6s ease-out;
+    border-top: 4px solid var(--primary-color);
+}
+
+.list-section h2 {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.list-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table thead {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #2d2d2d 100%);
+    color: var(--text-light);
+}
+
+table thead tr th {
+    padding: 1.2rem 1rem;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+table tbody tr {
+    border-bottom: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+table tbody tr:hover {
+    background: linear-gradient(90deg, rgba(255, 107, 0, 0.05) 0%, rgba(255, 165, 0, 0.05) 100%);
+    transform: scale(1.01);
+    box-shadow: 0 2px 8px rgba(255, 107, 0, 0.1);
+}
+
+table tbody tr:last-child {
+    border-bottom: none;
+}
+
+table tbody td {
+    padding: 1rem;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+table tbody td:first-child {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Actions Cell */
+.actions-cell {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-edit,
+.btn-delete {
+    padding: 0.5rem 1rem !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-edit {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%) !important;
+    color: white !important;
+}
+
+.btn-edit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
+.btn-delete {
+    background: linear-gradient(135deg, #dc3545 0%, #e55353 100%) !important;
+    color: white !important;
+}
+
+.btn-delete:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+}
+
+/* Message Box (para páginas de status) */
+.message-box {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+    max-width: 600px;
+    margin: 2rem auto;
+    text-align: center;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.message-box.success {
+    border-top: 4px solid #28a745;
+}
+
+.message-box.error {
+    border-top: 4px solid #dc3545;
+}
+
+.message-box h2 {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.message-box p {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.message-box .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    margin: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.message-box .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.4);
+}
+
+/* Botão genérico */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: white !important;
+    text-decoration: none !important;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    head h1, header h1 {
+        font-size: 1.8rem;
+    }
+
+    .form-section, .list-section {
+        padding: 1.5rem;
+        margin: 0 1rem;
+    }
+
+    .form-section h2, .list-section h2 {
+        font-size: 1.5rem;
+    }
+
+    nav a {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    table thead tr th,
+    table tbody td {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .actions-cell {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    head h1 {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    .form-section {
+        padding: 1.25rem;
+    }
+
+    button[type="submit"] {
+        font-size: 1rem;
+    }
+}
+/* ======================== */
+/* NOTIFICAÇÃO "TOAST"      */
+/* ======================== */
+
+.toast-notification {
+    position: fixed; /* Fica fixo na tela */
+    bottom: 30px; /* Embaixo */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translateX(-50%) translateY(100px); /* Começa fora da tela */
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    background: var(--secondary-color); /* Cor escura */
+    color: var(--text-light); /* Texto branco */
+    font-weight: 600;
+    box-shadow: var(--shadow-lg);
+    
+    /* Animação para aparecer e desaparecer */
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* Classe 'show' que o JavaScript vai adicionar */
+.toast-notification.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0); /* Move para a posição final */
+}
+
+/* Cores de sucesso e erro */
+.toast-notification.success {
+    background-color: #28a745; /* Verde */
+}
+
+.toast-notification.error {
+    background-color: #dc3545; /* Vermelho */
+}
+/* ======================== */
+/* ESTILOS DO HEADER E LOGO */
+/* ======================== */
+
+/* 1. CORREÇÃO (O teu CSS usa 'head', mas o HTML usa 'header') */
+/* Se ainda não corrigiste, troca isto: */
+head {
+    /* ... teus estilos ... */
+}
+head h1 {
+    /* ... teus estilos ... */
+}
+
+/* Por isto: */
+header {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #2d2d2d 100%);
+    color: var(--primary-color);
+    padding: 1.5rem 0; /* Reduzi um pouco o padding para o logo */
+    box-shadow: var(--shadow);
+}
+header h1 {
+    font-size: 2.2rem; /* Reduzi um pouco para caber com o logo */
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+
+/* 2. CÓDIGO DO NOVO LOGO (O mais importante!) */
+/* Isto vai alinhar o logo e o título lado a lado */
+
+header .container {
+    display: flex; /* Transforma o container num layout flexível */
+    align-items: center; /* Alinha o logo e o título verticalmente */
+    justify-content: center; /* Centraliza ambos no header */
+    gap: 20px; /* Adiciona um espaço entre o logo e o título */
+}
+
+.header-logo {
+    height: 60px; /* Mantém a altura */
+    width: auto;  /* Mantém a largura automática */
+    border-radius: 50%; /* ISTO FAZ A IMAGEM FICAR REDONDA! */
+    /* background-color: white; /* Opcional: Adiciona um fundo branco se a imagem tiver fundo transparente e quiser que ela se destaque */
+    /* border: 2px solid var(--primary-color); /* Opcional: Adiciona uma borda se quiser um destaque */
+}

@@ -26,7 +26,7 @@ git push -u origin main
 
 
 
-
+meu site tem varios idiomas tem como esconder o icone do vlibras quando  o idioma nao for pt-br,
 
 
 
