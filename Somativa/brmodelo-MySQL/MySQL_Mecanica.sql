@@ -35,24 +35,16 @@ CREATE TABLE Servicos (
     preco DECIMAL(10, 2) NOT NULL
 );
 
+
 CREATE TABLE Funcionario_Cadastrar (
-    funcao VARCHAR(50) NOT NULL,
-    id_funcionario INT NOT NULL,
-    nome_funcionario VARCHAR(100) NOT NULL,
+    id_cadastro INT AUTO_INCREMENT PRIMARY KEY, 
+    nome_cliente VARCHAR(100),
     CPF VARCHAR(14) NOT NULL,
     telefone VARCHAR(16) NOT NULL,
-    CEP VARCHAR(12),
-    id_cliente INT NOT NULL, 
-    cod_produto INT NOT NULL,
-    cod_servico INT NOT NULL,
     marca_veiculo VARCHAR(100) NOT NULL,
-    Observacao VARCHAR(200),
-    cod_cadastro INT NOT NULL,
-    placa_veiculo CHAR(7) NOT NULL,
-    nome_cliente VARCHAR(100),
-    nome_produto VARCHAR(100),
     servico VARCHAR(76),
-    PRIMARY KEY(id_funcionario, cod_cadastro)
+    nome_produto VARCHAR(100),
+    Observacao VARCHAR(200)
 );
 
 CREATE TABLE Produto (
